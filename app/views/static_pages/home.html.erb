@@ -3,7 +3,10 @@
 </div>
 
 <div data-role="content">
-	<p>
-		<%=t :home_page %>
-	</p>
+	<ul data-role="listview">
+		<li><%= link_to I18n.t(:url_home),    '#' %></li>
+		<li><%= link_to I18n.t(:url_help),    '#' %></li>
+		<li><%= link_to I18n.t(:url_sign_in), '#' %></li>
+		<li><%= link_to I18n.t(:url_sign_up), '#' %></li>
+	</ul>
 </div>

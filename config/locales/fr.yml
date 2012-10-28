@@ -6,3 +6,9 @@ fr:
     help_content: "De l'aide peut vous etre fournie dans cette page."
     about_title: 'A Propos'
     about_content: 'Nous voulons vous aider a faire les meilleures economies!'
+    contact_h1: 'Contactez nous'
+    contact_content: 'Contactez Mon Epicerie si vous avez des questions.'
+    url_home: 'Acceuil'
+    url_help: 'Aide'
+    url_sign_in: 'Connexion'
+    url_sign_up: 'Inscription'
