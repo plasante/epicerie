@@ -12,3 +12,5 @@ fr:
     url_help: 'Aide'
     url_sign_in: 'Connexion'
     url_sign_up: 'Inscription'
+    url_contact: 'Contactez nous'
+    users_new_title: 'Inscription'
