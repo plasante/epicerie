@@ -1,5 +1,5 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+    title: 'My Grocery'
+    page_acceuil: 'This is the home page of the My Grocery application.'
+    title_help: 'Help'
+    content_help: 'Help can be found in this page'
