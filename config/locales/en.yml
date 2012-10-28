@@ -1,5 +1,8 @@
 en:
+    main_title: 'My Grocery'
     home_title: 'My Grocery'
     home_page: 'This is the home page of the My Grocery application.'
     help_title: 'Help'
     help_content: 'Help can be found in this page'
+    about_title: 'About Us'
+    about_content: 'We are dedicated to help you find the best discount for your bucks!'

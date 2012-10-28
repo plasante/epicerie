@@ -1,5 +1,8 @@
 fr:
+    main_title: 'Mon Epicerie'
     home_title: 'Mon Epicerie'
     home_page: "Ceci est la page d'acceuil de l'application Mon Epicerie"
     help_title: 'Aide'
     help_content: "De l'aide peut vous etre fournie dans cette page."
+    about_title: 'A Propos'
+    about_content: 'Nous voulons vous aider a faire les meilleures economies!'
