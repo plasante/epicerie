@@ -1,5 +1,5 @@
 en:
-    title: 'My Grocery'
-    page_acceuil: 'This is the home page of the My Grocery application.'
-    title_help: 'Help'
-    content_help: 'Help can be found in this page'
+    home_title: 'My Grocery'
+    home_page: 'This is the home page of the My Grocery application.'
+    help_title: 'Help'
+    help_content: 'Help can be found in this page'
