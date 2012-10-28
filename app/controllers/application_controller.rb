@@ -11,10 +11,19 @@ class ApplicationController < ActionController::Base
   def set_locale_from_browser
     if (session[:initialized].nil? || !session[:initialized])
       logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
-      I18n.locale = extract_locale_from_accept_language_header
+      parsed_locale = extract_locale_from_accept_language_header
+      if ( I18n.available_locales.include?( parsed_locale.to_sym ) ) 
+        I18n.locale = parsed_locale
+      else
+        I18n.locale = 'en'
+      end
       logger.debug "* Locale set to '#{I18n.locale}'"
     elsif (!params[:locale].nil?)
-      I18n.locale = params[:locale]
+      if ( I18n.available_locales.include?( params[:locale].to_sym ) )
+        I18n.locale = params[:locale]
+      else
+        I18n.locale = 'en'
+      end
     else
       logger.debug "* Locale already set to '#{I18n.locale}'"
     end
