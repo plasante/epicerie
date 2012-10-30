@@ -1,0 +1,13 @@
+<div data-role="header">
+	<h1><%=t :home_title %></h1>	
+</div>
+
+<div data-role="content">
+	<ul data-role="listview">
+		<li><%= link_to I18n.t(:url_home),    root_path    %></li>
+		<li><%= link_to I18n.t(:url_help),    help_path    %></li>
+		<li><%= link_to I18n.t(:url_contact), contact_path %></li>
+		<li><%= link_to I18n.t(:url_sign_in), '#' %></li>
+		<li><%= link_to I18n.t(:url_sign_up), signup_path %></li>
+	</ul>
+</div>

@@ -15,3 +15,10 @@ fr:
     url_contact: 'Contactez nous'
     users_new_title: 'Inscription'
     users_show_title: 'Utilisateur'
+    user_first_name: 'Prénom'
+    user_last_name: 'Nom'
+    user_username: "Nom d'usager"
+    user_email: 'Courriel'
+    user_password: 'Mot de Passe'
+    user_password_confirmation: 'Confirmation'
+    create_my_account: 'Créez mon compte'
