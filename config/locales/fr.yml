@@ -22,3 +22,23 @@ fr:
     user_password: 'Mot de Passe'
     user_password_confirmation: 'Confirmation'
     create_my_account: 'Créez mon compte'
+    form_errors_count: 'La forme contient'
+    error: 'erreur'
+    welcome_message: 'Bienvenue à Mon Epicerie!'
+    activerecord:
+      models:
+        user: "User"
+      attributes:
+        user:
+          first_name: "Prénom"
+          last_name: "Nom"
+          username: "Nom d'usager"
+          email: "Courriel"
+          password: "Mot de Passe"
+          password_confirmation: "Confirmation"
+      errors:
+        messages:
+          blank: 'ne peut etre vide'
+          invalid: 'est invalide'
+          too_short: 'est trop court(e)'
+          taken: 'valeur est déjà utilisée'

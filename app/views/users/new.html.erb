@@ -2,8 +2,9 @@
 	<h1><%=t :users_new_title %></h1>	
 </div>
 
-<div data-role="content">
+<div data-role="content" >
 	<%= form_for(@user) do |f| %>
+		<%= render 'shared/error_messages' %> 
 		<%= f.label :first_name, t(:user_first_name) %>
 		<%= f.text_field :first_name %>
 		

@@ -9,25 +9,27 @@ class ApplicationController < ActionController::Base
   # devrait changer la locale a 'en-us'
   
   def set_locale_from_browser
-    if (session[:initialized].nil? || !session[:initialized])
-      logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
+    logger.debug "*** Setting locale"
+    if (session[:locale].nil?)
       parsed_locale = extract_locale_from_accept_language_header
-      if ( I18n.available_locales.include?( parsed_locale.to_sym ) ) 
-        I18n.locale = parsed_locale
+      if ( I18n.available_locales.include?( parsed_locale.to_sym ) )
+        logger.debug("*** Accept-Language #{request.env['HTTP_ACCEPT_LANGUAGE']} was found")
+        session[:locale] = parsed_locale
       else
-        I18n.locale = 'en'
+        logger.debug("*** Accept-Language #{request.env['HTTP_ACCEPT_LANGUAGE']} was not found")
+        session[:locale] = 'en'
       end
-      logger.debug "* Locale set to '#{I18n.locale}'"
     elsif (!params[:locale].nil?)
       if ( I18n.available_locales.include?( params[:locale].to_sym ) )
-        I18n.locale = params[:locale]
+        logger.debug("*** params[:locale] = " + params[:locale] + " is supported")
+        session[:locale] = params[:locale]
       else
-        I18n.locale = 'en'
+        logger.debug("*** params[:locale] = " + params[:locale] + " is not supported")
+        session[:locale] = 'en'
       end
-    else
-      logger.debug "* Locale already set to '#{I18n.locale}'"
     end
-    session[:initialized] = true
+    I18n.locale = session[:locale]
+    logger.debug "*** Locale = #{I18n.locale}"
   end
   
   private
