@@ -1,7 +1,0 @@
-<div data-role="header">
-	<h1><%=t :users_new_title %></h1>	
-</div>
-
-<div data-role="content">
-
-</div>

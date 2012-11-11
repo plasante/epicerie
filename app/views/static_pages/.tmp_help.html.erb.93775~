@@ -1,9 +1,0 @@
-<div data-role="header">
-	<h1><%=t :help_title %></h1>	
-</div>
-
-<div data-role="content">
-	<p>
-		<%=t :help_content %>
-	</p>
-</div>

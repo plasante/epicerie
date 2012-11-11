@@ -42,6 +42,10 @@ describe "UserPages" do
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
+      
+      it "should not create a user when table limit is reached" do
+        expect { click_button submit }.not_to change(User, :count)
+      end
     end
     
   end
