@@ -24,3 +24,4 @@ en-us:
     create_my_account: 'Create my account'
     form_errors_count: 'The form contains'
     error: 'error'
+    main_footer: 'This application was proudly built with Ruby On Rails.'

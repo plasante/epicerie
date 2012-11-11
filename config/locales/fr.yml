@@ -25,6 +25,7 @@ fr:
     form_errors_count: 'La forme contient'
     error: 'erreur'
     welcome_message: 'Bienvenue à Mon Epicerie!'
+    main_footer: 'Cette application est fièrement construite avec Ruby On Rails.'
     activerecord:
       models:
         user: "User"

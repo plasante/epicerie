@@ -25,3 +25,4 @@ en:
     form_errors_count: 'The form contains'
     error: 'error'
     welcome_message: 'Welcome to My Grocery App!'
+    main_footer: 'This application was proudly built with Ruby On Rails.'
