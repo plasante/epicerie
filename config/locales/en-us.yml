@@ -25,3 +25,4 @@ en-us:
     form_errors_count: 'The form contains'
     error: 'error'
     main_footer: 'This application was proudly built with Ruby On Rails.'
+    sessions_new_title: 'Sign in'

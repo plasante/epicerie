@@ -1,0 +1,17 @@
+<div data-role="header">
+	<h1><%=t :sessions_new_title %></h1>	
+</div>
+
+<div data-role="content" >
+	<%= form_for(:session, :url => sessions_path) do |f| %>
+		<%= f.label :email, t(:user_email) %>
+		<%= f.text_field :email %>
+		
+		<%= f.label :password, t(:user_password) %>
+		<%= f.password_field :password %>
+		
+		<%= f.submit t(:url_sign_in), :class => "btn btn-large btn-primary" %>
+	<% end %>
+	
+	<p><%=t :new_user? %> <%= link_to t(:sign_up_now!), signup_path %></p>
+</div>
