@@ -44,7 +44,8 @@ describe "UserPages" do
       end
       
       describe "after saving the user" do
-        it { should have_link( 'Sign out' ) }
+        before { click_button submit }
+        it { should have_link( I18n.t(:url_sign_out) ) }
       end
     end
     
