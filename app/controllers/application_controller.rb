@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  
+  # Pour que les signin functions soient disponible dans les controlleurs et les views.
+  include SessionsHelper
+  
   before_filter :set_locale_from_browser
 
   

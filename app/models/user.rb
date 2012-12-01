@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   
   has_secure_password
   
+  before_save :create_remember_token
+  
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_FIRST_NAME_REGEX = /^[a-z]+$/i
   VALID_LAST_NAME_REGEX = /^[a-z]+$/i
@@ -38,4 +40,10 @@ class User < ActiveRecord::Base
   validates :password,   :presence   => true,
                          :length     => { :minimum => 6 }
   validates :password_confirmation, :presence => true
+  
+  private
+    
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end

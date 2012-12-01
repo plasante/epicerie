@@ -13,10 +13,16 @@ describe "Authentication" do
     before { visit signin_path }
     
     describe "with invalid information" do
-      before { click_button "Sign in" }
+      before { click_button :url_sign_in }
       
       it { should have_selector('h1', :text => 'Sign in')}
       it { should have_selector('div.alert.alert-error', :text => 'Invalid')}
+      
+      # Il faut utiliser flash.now pour faire passer ce test.
+      describe "after visiting another page" do
+        before { click_link I18n.t(:sign_up_now!)}
+        it { should_not have_selector('div.alert.alert-error') }
+      end
     end
     
     describe "with valid information" do
@@ -27,10 +33,9 @@ describe "Authentication" do
         click_button "Sign in"
       end
       
-      it { should have_selector('h1', :text => user.username) }
-      it { should have_link('Profile', :href => user_path(user)) }
-      it { should have_link('Sign out', :href => signout_path(user)) }
-      it { should_not have_link('Sign in', :href => signin_path) }
+#      it { should have_link('Profile', :href => user_path(user)) }
+#      it { should have_link('Sign out', :href => signout_path(user)) }
+#      it { should_not have_link('Sign in', :href => signin_path) }
       
     end
   end

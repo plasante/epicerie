@@ -43,7 +43,9 @@ describe "UserPages" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
       
-      it "should not create a user when table limit is reached"
+      describe "after saving the user" do
+        it { should have_link( 'Sign out' ) }
+      end
     end
     
   end

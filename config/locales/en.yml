@@ -12,6 +12,7 @@ en:
     url_help: 'Help'
     url_sign_in: 'Sign in'
     url_sign_up: 'Sign up'
+    url_sign_out: 'Sign out'
     url_contact: 'Contact us'
     users_new_title: 'Sign up'
     users_show_title: 'Show User'
@@ -27,3 +28,5 @@ en:
     welcome_message: 'Welcome to My Grocery App!'
     main_footer: 'This application was proudly built with Ruby On Rails.'
     sessions_new_title: 'Sign in'
+    invalid_email_password_combination: 'Invalid email/password combination'
+    sign_up_now!: 'Sign up now!'
