@@ -14,6 +14,7 @@ fr:
     url_sign_up: 'Inscription'
     url_sign_out: 'Déconnexion'
     url_contact: 'Contactez nous'
+    url_edit_profile: 'Profil'
     users_new_title: 'Inscription'
     users_show_title: 'Utilisateur'
     user_first_name: 'Prénom'
@@ -30,6 +31,10 @@ fr:
     sessions_new_title: 'Connexion'
     new_user?: 'Nouvel usager?'
     sign_up_now!: 'Inscrivez-vous!'
+    update_your_profile: 'Modification de votre profil'
+    edit_user: 'Modification usager'
+    save_user_changes: 'Sauvegardez'
+    profile_updated: 'Profil modifié'
     invalid_email_password_combination: 'Combinaison Courriel/Mot de passe invalide'
     activerecord:
       models:

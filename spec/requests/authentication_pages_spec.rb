@@ -42,5 +42,13 @@ describe "Authentication" do
         it { should have_link( I18n.t(:url_sign_in), :href => signin_path) }
       end
     end
+  end # of describe "signin"
+  
+  describe "with valid information" do
+    let(:user) { FactoryGirl.create(:user) }
+    before { sign_in user }
+    
+    it { should have_link( I18n.t(:url_sign_out), :href => signout_path(user)) }
+    it { should_not have_link( I18n.t(:url_sign_in), :href => signin_path) }
   end
 end

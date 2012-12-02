@@ -1,0 +1,30 @@
+<div data-role="header">
+	<h1><%=t :update_your_profile %></h1>	
+</div>
+
+<div data-role="content">
+	<h2><%=t :edit_user %></h2>
+	<%= form_for(@user) do |f| %>
+		<%= render 'shared/error_messages' %>
+		
+		<%= f.label :first_name, t(:user_first_name) %>
+		<%= f.text_field :first_name %>
+		
+		<%= f.label :last_name, t(:user_last_name) %>
+		<%= f.text_field :last_name %>
+		
+		<%= f.label :username, t(:user_username) %>
+		<%= f.text_field :username %>
+		
+		<%= f.label :email, t(:user_email) %>
+		<%= f.text_field :email %>
+		
+		<%= f.label :password, t(:user_password) %>
+		<%= f.password_field :password %>
+		
+		<%= f.label :password_confirmation, t(:user_password_confirmation) %>
+		<%= f.password_field :password_confirmation %>
+		
+		<%= f.submit t(:save_user_changes), :class => "btn btn-large btn-primary" %>
+	<% end %>
+</div>
