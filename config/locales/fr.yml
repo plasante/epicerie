@@ -35,6 +35,9 @@ fr:
     edit_user: 'Modification usager'
     save_user_changes: 'Sauvegardez'
     profile_updated: 'Profil modifié'
+    please_sign_in: 'Veuillez vous connecter.'
+    all_users: 'Tous les usagers'
+    users: 'Utilisateurs'
     invalid_email_password_combination: 'Combinaison Courriel/Mot de passe invalide'
     activerecord:
       models:

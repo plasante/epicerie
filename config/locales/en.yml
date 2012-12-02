@@ -35,3 +35,6 @@ en:
     edit_user: 'Edit user'
     save_user_changes: 'Save'
     profile_updated: 'Profile updated'
+    please_sign_in: 'Please sign in.'
+    all_users: 'All users'
+    users: 'Users'
