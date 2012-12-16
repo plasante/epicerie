@@ -1,12 +1,13 @@
 namespace :db do
   desc "Fill database with sample data"
   task :populate => :environment do
-    User.create!(:first_name => "Pierre",
-                 :last_name  => "Lasante",
-                 :username   => "plasante",
-                 :email      => "plasante@email.com",
-                 :password   => "123456",
-                 :password_confirmation => "123456")
+    admin = User.create!(:first_name => "Pierre",
+                         :last_name  => "Lasante",
+                         :username   => "plasante",
+                         :email      => "plasante@email.com",
+                         :password   => "123456",
+                         :password_confirmation => "123456")
+    admin.toggle!(:admin)
     99.times do |n|
       first_name = Faker::Name.first_name.downcase
       last_name = Faker::Name.last_name.downcase
