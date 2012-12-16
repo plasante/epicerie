@@ -5,22 +5,48 @@ describe "UserPages" do
   subject { page }
   
   describe "index" do
-    before do
-      sign_in FactoryGirl.create(:user)
-      FactoryGirl.create(:user, :first_name => "Bob", :email => "bob@example.com")
-      FactoryGirl.create(:user, :first_name => "Ben", :email => "ben@example.com")
+    
+    let(:user) { FactoryGirl.create(:user) }
+    
+    before(:each) do
+      sign_in user
       visit users_path
     end
     
     it { should have_selector('h1', :text => I18n.t(:all_users))}
     it { should have_selector('h2', :text => I18n.t(:all_users))}
     
-    it "should list each user" do
-      User.all.each do |user|
-        page.should have_selector('li', :text => user.first_name)
+    describe "pagination" do
+      before(:all) { 30.times { FactoryGirl.create(:user) } }
+      after(:all)  { User.delete_all }
+      
+      it { should have_selector('div.pagination') }
+      
+      it "should list each user" do
+        User.paginate(:page => 1).each do |user|
+          page.should have_selector('li', :text => user.first_name)
+        end
       end
     end
-  end
+  end # of describe "index"
+  
+#  describe "index" do
+#    before do
+#      sign_in FactoryGirl.create(:user)
+#      FactoryGirl.create(:user, :first_name => "Bob", :email => "bob@example.com")
+#      FactoryGirl.create(:user, :first_name => "Ben", :email => "ben@example.com")
+#      visit users_path
+#    end
+#    
+#    it { should have_selector('h1', :text => I18n.t(:all_users))}
+#    it { should have_selector('h2', :text => I18n.t(:all_users))}
+#    
+#    it "should list each user" do
+#      User.all.each do |user|
+#        page.should have_selector('li', :text => user.first_name)
+#      end
+#    end
+#  end
   
   describe "signup page" do
     before { visit signup_path }
