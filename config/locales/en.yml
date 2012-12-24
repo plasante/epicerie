@@ -38,3 +38,6 @@ en:
     please_sign_in: 'Please sign in.'
     all_users: 'All users'
     users: 'Users'
+    delete_link: 'Delete'
+    you_sure: 'You sure?'
+    user_destroyed: 'User destroyed.'

@@ -26,3 +26,6 @@ en-us:
     error: 'error'
     main_footer: 'This application was proudly built with Ruby On Rails.'
     sessions_new_title: 'Sign in'
+    delete_link: 'Delete'
+    you_sure: 'You sure?'
+    user_destroyed: 'User destroyed.'

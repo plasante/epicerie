@@ -38,6 +38,9 @@ fr:
     please_sign_in: 'Veuillez vous connecter.'
     all_users: 'Tous les usagers'
     users: 'Utilisateurs'
+    delete_link: 'Effacer'
+    user_destroyed: 'Utilisateur détruit.'
+    you_sure: 'Certain?'
     invalid_email_password_combination: 'Combinaison Courriel/Mot de passe invalide'
     activerecord:
       models:
