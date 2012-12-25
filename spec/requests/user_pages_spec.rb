@@ -124,10 +124,21 @@ describe "UserPages" do
   
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
+    let!(:m1) { FactoryGirl.create(:micropost, :user => user, :content => "Foo") }
+    let!(:m2) { FactoryGirl.create(:micropost, :user => user, :content => "Bar") }
+    
     before { visit user_path(user) }
     
     it { should have_selector("h2", :text => user.first_name) }
     it { should have_selector("h2", :text => user.last_name) }
+    
+    describe "microposts" do
+      it { should have_content(m1.content) }
+      it { should have_content(m2.content) }
+      # user.microposts.count counts directly in the database
+      # if it becomes a bottleneck then make it faster with counter cache
+      it { should have_content(user.microposts.count) }
+    end
   end
   
   describe "signup page" do

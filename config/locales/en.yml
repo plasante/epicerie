@@ -41,3 +41,16 @@ en:
     delete_link: 'Delete'
     you_sure: 'You sure?'
     user_destroyed: 'User destroyed.'
+    posted: 'Posted'
+    ago: 'ago'
+    datetime:
+        distance_in_words:
+            about_x_minutes:
+                one: '1 minute'
+                other: "%{count} minutes"
+            about_x_hours:
+                one: '1 hour'
+                other: "%{count} hours"
+            about_x_days:
+                one: '1 day'
+                other: "%{count} days"

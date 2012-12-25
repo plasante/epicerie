@@ -41,6 +41,19 @@ fr:
     delete_link: 'Effacer'
     user_destroyed: 'Utilisateur détruit.'
     you_sure: 'Certain?'
+    posted: 'Affiché il y a '
+    ago: ''
+    datetime:
+        distance_in_words:
+            x_minutes:
+                one: '1 minute'
+                other: "%{count} minutes"
+            x_hours:
+                one: '1 heure'
+                other: "%{count} heures"
+            x_days:
+                one: '1 jour'
+                other: "%{count} jour"
     invalid_email_password_combination: 'Combinaison Courriel/Mot de passe invalide'
     activerecord:
       models:
