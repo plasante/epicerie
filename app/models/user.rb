@@ -13,6 +13,7 @@
 
 class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :username, :password, :password_confirmation
+  has_many :microposts
   
   before_save { |user| user.email = email.downcase }
   
