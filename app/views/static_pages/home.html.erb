@@ -14,7 +14,12 @@
 			<%= render 'shared/micropost_form' %>
 			<div>
 				<h3><%= I18n.t(:micropost_feed) %></h3>
-				<%#= render 'shared/feed' %>
+				<% if @feed_items.any? %>
+					<%= I18n.t(:you_have) %> <%= @feed_items.count %> <%= I18n.t(:post) %> 
+							 <%= link_to I18n.t(:click_here_to_see_them), current_user %>
+				<% else %>
+					You have 0 posts.
+				<% end %>
 			</div>
 		<% else %>
 	  		<li><%= link_to I18n.t(:url_sign_in), signin_path %></li>

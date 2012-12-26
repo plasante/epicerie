@@ -45,7 +45,11 @@ fr:
     ago: ''
     create_post: 'Créé un Post'
     micropost_created!: 'Post créé!'
-    micropost_feed: 'Micropost Liste'
+    micropost_feed: 'Liste de vos tweets'
+    you_have: 'Vous avez'
+    post: 'tweets.'
+    click_here_to_see_them: 'Cliquez ici pour voir vos tweets'
+    compose_new_post: 'Composez un nouveau tweet...'
     datetime:
         distance_in_words:
             x_minutes:

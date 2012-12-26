@@ -15,17 +15,6 @@ describe "MicropostPages" do
       visit root_path
     end
     
-    describe "with invalid information" do
-      it "should not create a micropost" do
-        expect { click_button I18n.t(:create_post) }.not_to change(Micropost, :count)
-      end
-      
-      describe "error messages" do
-        before { click_button I18n.t(:create_post) }
-        it { should have_content('error') }
-      end
-    end
-    
     describe "with valid information" do
       before { fill_in 'micropost_content', :with => "Lorem ipsum" }
       it "should create a micropost" do

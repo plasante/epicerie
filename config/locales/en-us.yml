@@ -34,6 +34,10 @@ en-us:
     create_post: 'Create Post'
     micropost_created!: 'Micropost created!'
     micropost_feed: 'Micropost Feed'
+    you_have: 'You have'
+    post: 'posts.'
+    click_here_to_see_them: 'Click here to see them'
+    compose_new_post: 'Compose a new micropost...'
     datetime:
         distance_in_words:
             about_x_minutes:
