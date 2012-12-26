@@ -12,6 +12,10 @@
 			<li><%= link_to I18n.t(:url_edit_profile), edit_user_path(current_user) %></li>
 			<li><%= link_to I18n.t(:url_sign_out), signout_path(current_user), :method => 'delete' %></li>
 			<%= render 'shared/micropost_form' %>
+			<div>
+				<h3><%= I18n.t(:micropost_feed) %></h3>
+				<%#= render 'shared/feed' %>
+			</div>
 		<% else %>
 	  		<li><%= link_to I18n.t(:url_sign_in), signin_path %></li>
 			<li><%= link_to I18n.t(:url_sign_up), signup_path %></li>

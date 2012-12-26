@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
                          :length     => { :minimum => 6 }
   validates :password_confirmation, :presence => true
   
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+  
   private
     
     def create_remember_token

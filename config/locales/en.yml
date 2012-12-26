@@ -45,6 +45,7 @@ en:
     ago: 'ago'
     create_post: 'Create Post'
     micropost_created!: 'Micropost created!'
+    micropost_feed: 'Micropost Feed'
     datetime:
         distance_in_words:
             about_x_minutes:

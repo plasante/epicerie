@@ -3,10 +3,17 @@ require 'spec_helper'
 describe "MicropostPages" do
   subject { page }
   let(:user) { FactoryGirl.create(:user) }
-  before { sign_in user }
+  before do
+    sign_in user 
+    FactoryGirl.create(:micropost, :user => user, :content => "Lorem ipsum")
+  end
+  
   
   describe "micropost creation" do
-    before { visit root_path }
+    before(:each) do 
+      FactoryGirl.create(:micropost, :user => user, :content => "Lorem ipsum")
+      visit root_path
+    end
     
     describe "with invalid information" do
       it "should not create a micropost" do
