@@ -43,6 +43,8 @@ en:
     user_destroyed: 'User destroyed.'
     posted: 'Posted'
     ago: 'ago'
+    create_post: 'Create Post'
+    micropost_created!: 'Micropost created!'
     datetime:
         distance_in_words:
             about_x_minutes:
