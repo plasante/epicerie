@@ -11,19 +11,13 @@
 			<li><%= link_to I18n.t(:url_contact), contact_path %></li>
 			<li><%= link_to I18n.t(:url_edit_profile), edit_user_path(current_user) %></li>
 			<li><%= link_to I18n.t(:url_sign_out), signout_path(current_user), :method => 'delete' %></li><br/>
-			<%= render 'shared/micropost_form' %>
-			<div>
-				<h3><%= I18n.t(:micropost_feed) %></h3>
-				<% if @feed_items.any? %>
-					<%= I18n.t(:you_have) %> <%= @feed_items.count %> <%= I18n.t(:post) %> 
-							 <%= link_to I18n.t(:click_here_to_see_them), current_user %>
-				<% else %>
-					<%= I18n.t(:you_have_zero_post) %>
-				<% end %>
-			</div>
 		<% else %>
 	  		<li><%= link_to I18n.t(:url_sign_in), signin_path %></li>
 			<li><%= link_to I18n.t(:url_sign_up), signup_path %></li>
 		<% end %>
 	</ul>
+	<% if signed_in? %>
+		<%= render 'shared/micropost_form' %>
+		<%= render 'shared/feed' %>
+	<% end %>
 </div>

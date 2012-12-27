@@ -1,6 +1,9 @@
-<% if @feed_items.any? %>
-	<ol class="microposts">
-		<%= render :partial => 'shared/feed_item', :collection => @feed_items %>
-	</ol>
-	<%= will_paginate @feed_items %>
-<% end %>
+<div>
+	<h3><%= I18n.t(:micropost_feed) %></h3>
+	<% if @feed_items.any? %>
+		<%= I18n.t(:you_have) %> <%= @feed_items.count %> <%= I18n.t(:post) %> 
+				 <%= link_to I18n.t(:click_here_to_see_them), current_user %>
+	<% else %>
+		<%= I18n.t(:you_have_zero_post) %>
+	<% end %>
+</div>
