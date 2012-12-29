@@ -11,7 +11,13 @@ Monepicerie::Application.routes.draw do
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy', :via => :delete
   
-  resources :users
+  resources :users do
+    member do
+      # users/1/following and users/1/followers
+      get :following, :followers
+    end
+  end
+  
   resources :sessions, :only => [:new, :create, :destroy]
   resources :microposts, :only => [:create, :destroy]
 

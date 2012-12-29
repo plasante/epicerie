@@ -51,6 +51,8 @@ fr:
     click_here_to_see_them: 'Cliquez ici pour voir vos tweets'
     compose_new_post: 'Composez un nouveau tweet...'
     you_have_zero_post: 'Vous avez 0 tweet'
+    following: 'suivants'
+    followers: 'suiveux'
     datetime:
         distance_in_words:
             x_minutes:

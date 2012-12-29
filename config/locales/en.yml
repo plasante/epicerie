@@ -51,6 +51,8 @@ en:
     compose_new_post: 'Compose a new micropost...'
     click_here_to_see_them: 'Click here to see them'
     you_have_zero_post: 'You have 0 post'
+    following: 'following'
+    followers: 'followers'
     datetime:
         distance_in_words:
             about_x_minutes:
