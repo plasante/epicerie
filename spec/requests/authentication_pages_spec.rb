@@ -89,6 +89,14 @@ describe "Authentication" do
           before { visit users_path }
           it { should have_selector('h1', :text => I18n.t(:url_sign_in)) }
         end
+        
+        describe "visiting the following page" do
+          
+        end
+        
+        describe "visiting the followers page" do
+          
+        end
       end
       
       describe "in the Microposts controller" do

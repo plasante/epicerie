@@ -53,6 +53,8 @@ fr:
     you_have_zero_post: 'Vous avez 0 tweet'
     following: 'suivants'
     followers: 'suiveux'
+    follow: 'Suivez'
+    unfollow: 'Unsuivez'
     datetime:
         distance_in_words:
             about_x_minutes:
