@@ -55,15 +55,15 @@ fr:
     followers: 'suiveux'
     datetime:
         distance_in_words:
-            x_minutes:
+            about_x_minutes:
                 one: '1 minute'
                 other: "%{count} minutes"
-            x_hours:
+            about_x_hours:
                 one: '1 heure'
                 other: "%{count} heures"
-            x_days:
+            about_x_days:
                 one: '1 jour'
-                other: "%{count} jour"
+                other: "%{count} jours"
     invalid_email_password_combination: 'Combinaison Courriel/Mot de passe invalide'
     activerecord:
       models:
