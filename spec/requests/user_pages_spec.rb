@@ -4,6 +4,32 @@ describe "UserPages" do
   
   subject { page }
   
+  describe "following/followers" do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:other_user) { FactoryGirl.create(:user) }
+    before { user.follow!(other_user) }
+    
+    describe "followed users " do
+      before do
+        sign_in user
+        visit following_user_path(user)
+      end
+      
+      it { should have_selector('h3', :text => I18n.t(:following)) }
+      it { should have_link(other_user.first_name, :href => user_path(other_user)) }
+    end
+    
+    describe "followers" do
+      before do
+        sign_in other_user
+        visit followers_user_path(other_user)
+      end
+      
+      it { should have_selector('h3', :text => I18n.t(:followers)) }
+      it { should have_link(user.first_name, :href => user_path(user)) }
+    end
+  end # of describe following/followers
+  
   describe "index" do
     
     let(:user) { FactoryGirl.create(:user) }
@@ -60,24 +86,6 @@ describe "UserPages" do
     end
     
   end # of describe "index"
-  
-#  describe "index" do
-#    before do
-#      sign_in FactoryGirl.create(:user)
-#      FactoryGirl.create(:user, :first_name => "Bob", :email => "bob@example.com")
-#      FactoryGirl.create(:user, :first_name => "Ben", :email => "ben@example.com")
-#      visit users_path
-#    end
-#    
-#    it { should have_selector('h1', :text => I18n.t(:all_users))}
-#    it { should have_selector('h2', :text => I18n.t(:all_users))}
-#    
-#    it "should list each user" do
-#      User.all.each do |user|
-#        page.should have_selector('li', :text => user.first_name)
-#      end
-#    end
-#  end
   
   describe "signup page" do
     before { visit signup_path }

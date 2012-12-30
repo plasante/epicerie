@@ -91,11 +91,13 @@ describe "Authentication" do
         end
         
         describe "visiting the following page" do
-          
+#          before { visit following_user_path(user) }
+#          it { should have_selector('title', :text => I18n.t(:url_sign_in)) }
         end
         
         describe "visiting the followers page" do
-          
+#          before { visit followers_user_path(user) }
+#          it { should have_selector('title', :text => I18n.t(:url_sign_in)) }
         end
       end
       

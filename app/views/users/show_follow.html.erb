@@ -1,0 +1,17 @@
+<div data-role="header">
+	<h1><%=t :users_show_title %></h1>	
+</div>
+
+<div data-role="content">
+	<div class="">
+		<h1><%= @user.username %></h1>
+		<span><b>Microposts:</b> <%= @user.microposts.count %></span>
+		<h3><%= @title %></h3>
+		<% if @users.any? %>
+			<ul class="users">
+				<%= render @users %>
+			</ul>
+			<%= will_paginate %>
+		<% end %>
+	</div>
+</div>
