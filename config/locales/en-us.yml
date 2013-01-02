@@ -43,6 +43,7 @@ en-us:
     followers: 'followers'
     follow: 'Follow'
     unfollow: 'Unfollow'
+    save_money_button: 'Save Money Now!'
     datetime:
         distance_in_words:
             about_x_minutes:

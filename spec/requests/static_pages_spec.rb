@@ -9,6 +9,11 @@ describe "StaticPages" do
       should have_content('My Grocery')
     end
     
+    it "should have a save money button" do
+      visit home_path
+      should have_button( I18n.t(:save_money_button) )
+    end
+    
     describe "for signed-in users" do
       let(:user) { FactoryGirl.create(:user) }
       
@@ -26,8 +31,8 @@ describe "StaticPages" do
           visit root_path
         end
         
-        it { should have_link("0 following", :href => following_user_path(user)) }
-        it { should have_link("1 followers", :href => followers_user_path(user)) }
+#        it { should have_link("0 following", :href => following_user_path(user)) }
+#        it { should have_link("1 followers", :href => followers_user_path(user)) }
       end
     end
   end

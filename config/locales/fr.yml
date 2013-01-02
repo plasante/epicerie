@@ -55,6 +55,7 @@ fr:
     followers: 'suiveux'
     follow: 'Suivez'
     unfollow: 'Unsuivez'
+    save_money_button: 'Economisez Maintenant!'
     datetime:
         distance_in_words:
             about_x_minutes:
