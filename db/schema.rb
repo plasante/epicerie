@@ -11,7 +11,50 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130113143938) do
+ActiveRecord::Schema.define(:version => 20130113152817) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "nom"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "magasin_produits", :force => true do |t|
+    t.integer  "magasin_id"
+    t.integer  "produit_id"
+    t.integer  "quantity",                                     :default => 1
+    t.decimal  "prix_regulier", :precision => 12, :scale => 2, :default => 0.0
+    t.decimal  "prix_special",  :precision => 12, :scale => 2, :default => 0.0
+    t.date     "date_debut"
+    t.date     "date_fin"
+    t.datetime "created_at",                                                    :null => false
+    t.datetime "updated_at",                                                    :null => false
+  end
+
+  add_index "magasin_produits", ["magasin_id"], :name => "index_magasin_produits_on_magasin_id"
+  add_index "magasin_produits", ["produit_id"], :name => "index_magasin_produits_on_produit_id"
+
+  create_table "magasin_types", :force => true do |t|
+    t.string   "nom"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "magasins", :force => true do |t|
+    t.string   "nom"
+    t.text     "description"
+    t.integer  "magasin_type_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "magasins", ["magasin_type_id"], :name => "index_magasins_on_magasin_type_id"
+
+  create_table "manufacturers", :force => true do |t|
+    t.string   "nom"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -21,6 +64,18 @@ ActiveRecord::Schema.define(:version => 20130113143938) do
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
+
+  create_table "produits", :force => true do |t|
+    t.string   "nom"
+    t.text     "description"
+    t.integer  "category_id"
+    t.integer  "manufacturer_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "produits", ["category_id"], :name => "index_produits_on_category_id"
+  add_index "produits", ["manufacturer_id"], :name => "index_produits_on_manufacturer_id"
 
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
@@ -33,6 +88,24 @@ ActiveRecord::Schema.define(:version => 20130113143938) do
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
+  create_table "shopping_list_items", :force => true do |t|
+    t.integer  "shopping_list_id"
+    t.integer  "magasin_produit_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "shopping_list_items", ["magasin_produit_id"], :name => "index_shopping_list_items_on_magasin_produit_id"
+  add_index "shopping_list_items", ["shopping_list_id"], :name => "index_shopping_list_items_on_shopping_list_id"
+
+  create_table "shopping_lists", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "shopping_lists", ["user_id"], :name => "index_shopping_lists_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -43,7 +116,7 @@ ActiveRecord::Schema.define(:version => 20130113143938) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           :default => false
-    t.boolean  "family"
+    t.boolean  "family",          :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

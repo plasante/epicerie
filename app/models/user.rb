@@ -12,6 +12,7 @@
 #  password_digest :string(255)
 #  remember_token  :string(255)
 #  admin           :boolean          default(FALSE)
+#  family          :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -21,7 +22,7 @@ class User < ActiveRecord::Base
   has_many :followed_users, :through => :relationships, :source => :followed
   has_many :reverse_relationships, :foreign_key => "followed_id", :class_name => "Relationship", :dependent => :destroy
   has_many :followers, :through => :reverse_relationships, :source => :follower
-  has_many :groceries_lists
+  has_many :shopping_lists
   
   before_save { |user| user.email = email.downcase }
   

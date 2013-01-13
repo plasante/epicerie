@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: groceries_lists
+# Table name: shopping_lists
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer
@@ -8,8 +8,9 @@
 #  updated_at :datetime         not null
 #
 
-require 'spec_helper'
-
-describe GroceriesList do
-  pending "add some examples to (or delete) #{__FILE__}"
+class ShoppingList < ActiveRecord::Base
+  belongs_to :user
+  has_many :shopping_list_items
+  
+  # attr_accessible :title, :body
 end
