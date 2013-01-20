@@ -4,6 +4,8 @@ namespace :db do
     make_users
     make_microposts
     make_relationships
+    make_magasin_types
+    make_magasins
   end
 end
 
@@ -44,4 +46,19 @@ def make_relationships
   followers      = users[3..40]
   followed_users.each { |followed| user.follow!(followed) }
   followers.each      { |follower| follower.follow!(user) }
+end
+
+def make_magasin_types
+  noms = %w(epicerie quincaillerie restaurant)
+  noms.each do |nom|
+    MagasinType.create(:nom => nom)
+  end
+end
+
+def make_magasins
+  noms = %w(Metro IGA Loblaws Maxi SuperC)
+  magasin_type = MagasinType.first
+  noms.each do |nom|
+    magasin_type.magasins.create(:nom => nom, :description => "")
+  end
 end

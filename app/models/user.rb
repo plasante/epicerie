@@ -31,8 +31,8 @@ class User < ActiveRecord::Base
   before_save :create_remember_token
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  VALID_FIRST_NAME_REGEX = /^[a-z0-9]+$/i
-  VALID_LAST_NAME_REGEX = /^[a-z'0-9]+$/i
+  VALID_FIRST_NAME_REGEX = /^[a-zA-Z0-9]+$/i
+  VALID_LAST_NAME_REGEX = /^[a-zA-Z'0-9]+$/i
   VALID_USERNAME_REGEX = /^[a-z0-9]+$/i
   
   validates :first_name, :presence   => true, 
