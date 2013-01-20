@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130113152817) do
+ActiveRecord::Schema.define(:version => 20130120125407) do
+
+  create_table "magasin_types", :force => true do |t|
+    t.string   "nom"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "magasins", :force => true do |t|
+    t.string   "nom"
+    t.string   "description"
+    t.integer  "magasin_type_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "magasins", ["magasin_type_id"], :name => "index_magasins_on_magasin_type_id"
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -32,16 +48,6 @@ ActiveRecord::Schema.define(:version => 20130113152817) do
   add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
-
-  create_table "shopping_list_items", :force => true do |t|
-    t.integer  "shopping_list_id"
-    t.integer  "magasin_produit_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-  end
-
-  add_index "shopping_list_items", ["magasin_produit_id"], :name => "index_shopping_list_items_on_magasin_produit_id"
-  add_index "shopping_list_items", ["shopping_list_id"], :name => "index_shopping_list_items_on_shopping_list_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

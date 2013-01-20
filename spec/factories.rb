@@ -32,29 +32,9 @@ FactoryGirl.define do
 
   factory :magasin do
     sequence(:nom) { |n| "magasin#{n}" }
+    sequence(:description) { |n| "description#{n}" }
     magasin_type
   end
 
-  factory :category do
-    sequence(:nom) { |n| "category#{n}" }
-  end
 
-  factory :manufacturer do
-    sequence(:nom) { |n| "manufacturer#{n}" }
-  end
-
-  factory :produit do
-    sequence(:nom) { |n| "produit#{n}" }
-    sequence(:description) { |n| "description#{n}" }
-    category
-    manufacturer
-  end
-
-  factory :magasin_produit do
-    quantity 1
-    prix_requlier 1.5
-    prix_special 1.0
-    magasin
-    produit
-  end
 end
