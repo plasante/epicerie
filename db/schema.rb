@@ -11,7 +11,50 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130120125407) do
+ActiveRecord::Schema.define(:version => 20130120171849) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "nom"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "fabricants", :force => true do |t|
+    t.string   "nom"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "formats", :force => true do |t|
+    t.string   "nom"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "liste_items", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "produit_id"
+    t.integer  "qty",        :default => 1
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "liste_items", ["produit_id"], :name => "index_liste_items_on_produit_id"
+  add_index "liste_items", ["user_id"], :name => "index_liste_items_on_user_id"
+
+  create_table "magasin_produits", :force => true do |t|
+    t.integer  "magasin_id"
+    t.integer  "produit_id"
+    t.decimal  "prix_regulier", :precision => 12, :scale => 2
+    t.decimal  "prix_special",  :precision => 12, :scale => 2
+    t.date     "date_debut",                                   :default => '2013-01-20'
+    t.date     "date_fin",                                     :default => '2013-01-20'
+    t.datetime "created_at",                                                             :null => false
+    t.datetime "updated_at",                                                             :null => false
+  end
+
+  add_index "magasin_produits", ["magasin_id"], :name => "index_magasin_produits_on_magasin_id"
+  add_index "magasin_produits", ["produit_id"], :name => "index_magasin_produits_on_produit_id"
 
   create_table "magasin_types", :force => true do |t|
     t.string   "nom"
@@ -37,6 +80,27 @@ ActiveRecord::Schema.define(:version => 20130120125407) do
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
+
+  create_table "produit_noms", :force => true do |t|
+    t.string   "nom"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "produits", :force => true do |t|
+    t.integer  "produit_nom_id"
+    t.integer  "category_id"
+    t.integer  "fabricant_id"
+    t.integer  "format_id"
+    t.string   "description"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "produits", ["category_id"], :name => "index_produits_on_category_id"
+  add_index "produits", ["fabricant_id"], :name => "index_produits_on_fabricant_id"
+  add_index "produits", ["format_id"], :name => "index_produits_on_format_id"
+  add_index "produits", ["produit_nom_id"], :name => "index_produits_on_produit_nom_id"
 
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
