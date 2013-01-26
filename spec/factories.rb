@@ -36,5 +36,26 @@ FactoryGirl.define do
     magasin_type
   end
 
+  factory :produit_nom do
+    sequence(:nom) { |n| "nom#{n}" }
+  end
 
+  factory :category do
+    sequence(:nom) { |n| "nom#{n}" }
+  end
+
+  factory :fabricant do
+    sequence(:nom) { |n| "nom#{n}" }
+  end
+
+  factory :format do
+    sequence(:nom) { |n| "nom#{n}" }
+  end
+
+  factory :produit do
+    produit_nom
+    category
+    fabricant
+    format
+  end
 end
