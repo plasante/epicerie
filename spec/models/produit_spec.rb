@@ -21,17 +21,9 @@ describe Produit do
 
   describe "attributes" do
     it { should respond_to(:produit_nom) }
-    its(:produit_nom) { should == produit_nom }
-
     it { should respond_to(:category) }
-    its(:category) { should == category }
-
     it { should respond_to(:fabricant) }
-    its(:fabricant) { should == fabricant }
-
     it { should respond_to(:format) }
-    its(:format) { should == format }
-
     it { should respond_to(:description) }
   end
 
@@ -46,6 +38,9 @@ describe Produit do
   end
 
   describe "associations" do
-
+    its(:produit_nom) { should == produit_nom }
+    its(:category) { should == category }
+    its(:fabricant) { should == fabricant }
+    its(:format) { should == format }
   end
 end

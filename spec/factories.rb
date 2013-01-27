@@ -57,5 +57,6 @@ FactoryGirl.define do
     category
     fabricant
     format
+    description "description"
   end
 end
