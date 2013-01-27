@@ -9,5 +9,6 @@ class CreateListeItems < ActiveRecord::Migration
     end
     add_index :liste_items, :user_id
     add_index :liste_items, :produit_id
+    add_index :liste_items, [:user_id, :produit_id], :unique => true
   end
 end

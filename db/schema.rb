@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20130126133908) do
   end
 
   add_index "liste_items", ["produit_id"], :name => "index_liste_items_on_produit_id"
+  add_index "liste_items", ["user_id", "produit_id"], :name => "index_liste_items_on_user_id_and_produit_id", :unique => true
   add_index "liste_items", ["user_id"], :name => "index_liste_items_on_user_id"
 
   create_table "magasin_produits", :force => true do |t|
@@ -53,8 +54,8 @@ ActiveRecord::Schema.define(:version => 20130126133908) do
     t.integer  "produit_id"
     t.decimal  "prix_regulier", :precision => 12, :scale => 2
     t.decimal  "prix_special",  :precision => 12, :scale => 2
-    t.date     "date_debut",                                   :default => '2013-01-20'
-    t.date     "date_fin",                                     :default => '2013-01-20'
+    t.date     "date_debut",                                   :default => '2013-01-27'
+    t.date     "date_fin",                                     :default => '2013-01-27'
     t.datetime "created_at",                                                             :null => false
     t.datetime "updated_at",                                                             :null => false
   end

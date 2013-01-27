@@ -48,6 +48,13 @@ describe ListeItem do
   	  	it { should_not be_valid }
   	  end
   	end
+  	describe "cannot have two identical liste_item" do
+  	  before { @liste_item.save }
+  	  it "cannot have duplicated liste_item" do 
+  	  	duplicate_liste_item = @liste_item.dup
+  	  	duplicate_liste_item.should_not be_valid
+  	  end
+  	end
   end
 
   describe "associations" do

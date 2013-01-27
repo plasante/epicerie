@@ -46,7 +46,7 @@ describe User do
   it { should respond_to(:following?) }
   it { should respond_to(:follow!) }
   it { should respond_to(:unfollow!) }
-  
+  it { should respond_to(:liste_items) }
   it { should be_valid }
   it { should_not be_admin }
   
@@ -173,6 +173,31 @@ describe User do
     its(:remember_token) { should_not be_blank }
   end
   
+  describe "liste_items associations" do
+
+    before { @user.save }
+
+    let!(:produit_nom) { FactoryGirl.create(:produit_nom, :nom => 'Lait ecreme') }
+    let!(:category) { FactoryGirl.create(:category, :nom => 'Produits Laitiers') }
+    let!(:fabricant) { FactoryGirl.create(:fabricant, :nom => 'Quebon') }
+    let!(:format) { FactoryGirl.create(:format, :nom => '2L') }
+
+    let!(:produit) { FactoryGirl.create(:produit,
+                                        :produit_nom => produit_nom,
+                                        :category => category,
+                                        :fabricant => fabricant,
+                                        :format => format) }
+
+    let!(:liste_item) { FactoryGirl.create(:liste_item,
+                                           :user => @user,
+                                           :produit => produit,
+                                           :qty => 1) }
+
+    it "should have a liste_item" do
+      @user.liste_items.should == [liste_item]
+    end
+  end
+
   describe "microposts associations" do
     before { @user.save }
     # The "let" method is lazy and we have to use the "let bang" method

@@ -59,4 +59,10 @@ FactoryGirl.define do
     format
     description "description"
   end
+
+  factory :liste_item do
+    user
+    produit
+    qty 1
+  end
 end

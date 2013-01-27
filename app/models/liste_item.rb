@@ -7,4 +7,5 @@ class ListeItem < ActiveRecord::Base
   validates :user, :presence => true
   validates :produit, :presence => true
   validates :qty, :numericality => true
+  validates :user_id, :uniqueness => {:scope => :produit_id}
 end
