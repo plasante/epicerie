@@ -1,0 +1,19 @@
+<table>
+	<tr>
+	<th>Magasin</th>
+	<th>Produit</th>
+	<th>Format</th>
+	<th>Prix</th>
+	</tr>
+  <% @results.each do |result| %>
+    <tr>
+  	<td><%= result.magasin.nom %></td>
+  	<td><%= result.produit.produit_nom.nom %></td>
+  	<td><%= result.produit.format.nom %></td>
+  	<td><%= result.prix_regulier %></td>
+  	</tr>
+  <% end %>
+  <% @results2.each do |result| %>
+  	<tr><td><%= result.id %></td></tr>
+  <% end %>
+</table>
