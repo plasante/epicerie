@@ -6,14 +6,11 @@
 	<th>Prix</th>
 	</tr>
   <% @results.each do |result| %>
-    <tr>
-  	<td><%= result.magasin.nom %></td>
-  	<td><%= result.produit.produit_nom.nom %></td>
-  	<td><%= result.produit.format.nom %></td>
-  	<td><%= result.prix_regulier %></td>
+  	<tr>
+  	<td><%= result[0].magasin.nom %></td>
+  	<td><%= result[0].produit.produit_nom.nom %></td>
+  	<td><%= result[0].produit.format.nom %></td>
+  	<td><%= result[0].prix_regulier %></td>
   	</tr>
-  <% end %>
-  <% @results2.each do |result| %>
-  	<tr><td><%= result.id %></td></tr>
   <% end %>
 </table>
