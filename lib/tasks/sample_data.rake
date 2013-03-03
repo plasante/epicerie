@@ -1,19 +1,19 @@
 namespace :db do
   desc "Fill database with sample data"
   task :populate => :environment do
-#    make_users
-#    make_microposts
-#    make_relationships
+    make_users
+    make_microposts
+    make_relationships
 
-#    make_magasin_types
-#    make_magasins
-#    make_produit_noms
-#    make_categories
-#    make_fabricants
-#    make_formats
-#    make_produits
-#    make_magasins_produits
-#    make_liste_items
+    make_magasin_types
+    make_magasins
+    make_produit_noms
+    make_categories
+    make_fabricants
+    make_formats
+    make_produits
+    make_magasins_produits
+    make_liste_items
     make_store_procs
   end
 end
