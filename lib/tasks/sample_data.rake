@@ -148,15 +148,15 @@ end
 def make_liste_items
   user = User.first
   produit1 = Produit.find(2)   # Lait Ecreme 2L
-  produit2 = Produit.find(5)   # Lait 1% 2L
-  produit3 = Produit.find(8)   # Lait 2% 2L
-  produit4 = Produit.find(11)  # Lait 3.25% 2L
+  produit2 = Produit.find(14)   # Lait 1% 2L
+  produit3 = Produit.find(26)   # Lait 2% 2L
+  produit4 = Produit.find(38)  # Lait 3.25% 2L
 
   ActiveRecord::Base.connection.execute("truncate monepicerie_development.liste_items;")
   ListeItem.create(:user => user, :produit => produit1, :qty => rand(1..5))
-  #ListeItem.create(:user => user, :produit => produit2, :qty => rand(1..5))
-  #ListeItem.create(:user => user, :produit => produit3, :qty => rand(1..5))
-  #ListeItem.create(:user => user, :produit => produit4, :qty => rand(1..5))
+  ListeItem.create(:user => user, :produit => produit2, :qty => rand(1..5))
+  ListeItem.create(:user => user, :produit => produit3, :qty => rand(1..5))
+  ListeItem.create(:user => user, :produit => produit4, :qty => rand(1..5))
 end
 
 def make_store_procs
