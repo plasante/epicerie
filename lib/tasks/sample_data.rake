@@ -14,7 +14,7 @@ namespace :db do
     make_produits
     make_magasins_produits
     make_liste_items
-    make_store_procs
+#    make_store_procs
   end
 end
 
@@ -145,6 +145,7 @@ def make_magasins_produits
   end
 end
 
+# Si un utilisateur n'est pas connecte alors il aura la meme list_items que moi ( user_id = 1 )
 def make_liste_items
   user = User.first
   produit1 = Produit.find(2)   # Lait Ecreme 2L

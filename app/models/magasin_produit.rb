@@ -13,6 +13,9 @@ class MagasinProduit < ActiveRecord::Base
   # Une liste de magasins ayant le plus bas prix sera affiche a l'ecran.
   #
   def self.getMeilleurPrix( user )
+    if (user.nil?) 
+      user = User.first
+    end
   	magasin_liste = []
   	liste_items = ListeItem.select("produit_id").where("user_id = :user_id", :user_id => user)
     liste_items.each do |liste_item|
