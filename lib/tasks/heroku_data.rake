@@ -11,7 +11,7 @@ namespace :db do
     make_heroku_formats
     make_heroku_produits
     make_heroku_magasins_produits
-    make_heroku_liste_items
+#    make_heroku_liste_items
 #    make_store_procs
   end
 end
