@@ -11,13 +11,13 @@ namespace :db do
     make_heroku_formats
     make_heroku_produits
     make_heroku_magasins_produits
-#    make_heroku_liste_items
+    make_heroku_liste_items
 #    make_store_procs
   end
 end
 
 def make_heroku_users
-  ActiveRecord::Base.connection.execute("truncate users;")
+  ActiveRecord::Base.connection.execute("truncate users RESTART IDENTITY;")
   admin = User.create!(:first_name => "Pierrot",
                        :last_name  => "Lasante",
                        :username   => "plasante",
@@ -28,7 +28,7 @@ def make_heroku_users
 end
 
 def make_heroku_magasin_types
-  ActiveRecord::Base.connection.execute("truncate magasin_types;")
+  ActiveRecord::Base.connection.execute("truncate magasin_types RESTART IDENTITY;")
   noms = %w(epicerie quincaillerie restaurant)
   noms.each do |nom|
     MagasinType.create(:nom => nom)
@@ -36,7 +36,7 @@ def make_heroku_magasin_types
 end
 
 def make_heroku_magasins
-  ActiveRecord::Base.connection.execute("truncate magasins;")
+  ActiveRecord::Base.connection.execute("truncate magasins RESTART IDENTITY;")
   noms = %w(Metro IGA Loblaws Maxi SuperC Bonichoix Richelieu Axep Adonis Walmart Costco Esposito 440 InterMarche LeJardin M&M Mourelatos Pasquier Provigo SupermarchePA Tau Tradition Odessa)
   magasin_type = MagasinType.first
   noms.each do |nom|
@@ -45,7 +45,7 @@ def make_heroku_magasins
 end
 
 def make_heroku_produit_noms
-  ActiveRecord::Base.connection.execute("truncate produit_noms;")
+  ActiveRecord::Base.connection.execute("truncate produit_noms RESTART IDENTITY;")
   noms = %w(Lait_ecreme Lait_1% Lait_2% Lait_3.25%)
   noms.each do |nom|
     ProduitNom.create(:nom => nom)
@@ -53,7 +53,7 @@ def make_heroku_produit_noms
 end
 
 def make_heroku_categories
-  ActiveRecord::Base.connection.execute("truncate categories;")
+  ActiveRecord::Base.connection.execute("truncate categories RESTART IDENTITY;")
   noms = %w(Produits_Laitiers Viandes Breuvages)
   noms.each do |nom|
     Category.create(:nom => nom)
@@ -61,7 +61,7 @@ def make_heroku_categories
 end
 
 def make_heroku_fabricants
-  ActiveRecord::Base.connection.execute("truncate fabricants;")
+  ActiveRecord::Base.connection.execute("truncate fabricants RESTART IDENTITY;")
   noms = %w(Quebon Lanctatia Grand_Pre Natrel)
   noms.each do |nom|
     Fabricant.create(:nom => nom)
@@ -69,7 +69,7 @@ def make_heroku_fabricants
 end
 
 def make_heroku_formats
-  ActiveRecord::Base.connection.execute("truncate formats;")
+  ActiveRecord::Base.connection.execute("truncate formats RESTART IDENTITY;")
   noms = %w(1L 2L 3x1L)
   noms.each do |nom|
     Format.create(:nom => nom)
@@ -82,7 +82,7 @@ def make_heroku_produits
   fabricants = Fabricant.all
   formats = Format.all
 
-  ActiveRecord::Base.connection.execute("truncate produits;")
+  ActiveRecord::Base.connection.execute("truncate produits RESTART IDENTITY;")
   produit_noms.each do |produit_nom|
     fabricants.each do |fabricant|
       formats.each do |format|
@@ -99,7 +99,7 @@ def make_heroku_magasins_produits
   magasins = Magasin.all
   produits = Produit.all
 
-  ActiveRecord::Base.connection.execute("truncate magasin_produits;")
+  ActiveRecord::Base.connection.execute("truncate magasin_produits RESTART IDENTITY;")
   magasins.each do |magasin|
     produits.each do |produit|
       MagasinProduit.create(:magasin => magasin,
@@ -119,7 +119,7 @@ def make_heroku_liste_items
   produit3 = Produit.find(26)   # Lait 2% 2L
   produit4 = Produit.find(38)  # Lait 3.25% 2L
 
-  ActiveRecord::Base.connection.execute("truncate liste_items;")
+  ActiveRecord::Base.connection.execute("truncate liste_items RESTART IDENTITY;")
   ListeItem.create(:user => user, :produit => produit1, :qty => rand(1..5))
   ListeItem.create(:user => user, :produit => produit2, :qty => rand(1..5))
   ListeItem.create(:user => user, :produit => produit3, :qty => rand(1..5))
