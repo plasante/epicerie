@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(:version => 20130126133908) do
     t.integer  "produit_id"
     t.decimal  "prix_regulier", :precision => 12, :scale => 2
     t.decimal  "prix_special",  :precision => 12, :scale => 2
-    t.date     "date_debut",                                   :default => '2013-01-27'
-    t.date     "date_fin",                                     :default => '2013-01-27'
+    t.date     "date_debut",                                   :default => '2013-03-09'
+    t.date     "date_fin",                                     :default => '2013-03-09'
     t.datetime "created_at",                                                             :null => false
     t.datetime "updated_at",                                                             :null => false
   end
