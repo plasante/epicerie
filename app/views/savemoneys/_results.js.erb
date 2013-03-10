@@ -1,7 +1,8 @@
-<table>
+<table border="1">
 	<tr>
 	<th>Magasin</th>
 	<th>Produit</th>
+  <th>Fabricant</th>
 	<th>Format</th>
 	<th>Prix</th>
 	</tr>
@@ -9,8 +10,9 @@
   	<tr>
   	<td><%= result[0].magasin.nom %></td>
   	<td><%= result[0].produit.produit_nom.nom %></td>
+    <td><%= result[0].produit.fabricant.nom %></td>
   	<td><%= result[0].produit.format.nom %></td>
-  	<td><%= result[0].prix_regulier %></td>
+  	<td><%= number_to_currency(result[0].prix_regulier) %></td>
   	</tr>
   <% end %>
 </table>
