@@ -84,7 +84,7 @@ def make_heroku_full_liste
 
   produit_nom_cafe_instant = ProduitNom.find(5);
   categorie_cafe = Category.find(3);
-  fabricant_cafe = Fabricant.find(4);
+  fabricant_cafe = Fabricant.find(5);
   format_cafe = Format.find(5)
   Produit.create(:produit_nom => produit_nom_cafe_instant, :category => categorie_cafe, 
                  :fabricant => fabricant_cafe, :format => format_cafe,

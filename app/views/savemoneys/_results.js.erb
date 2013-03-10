@@ -1,4 +1,5 @@
 <table border="1">
+  <caption>Meilleur prix</caption>
 	<tr>
 	<th>Magasin</th>
 	<th>Produit</th>
@@ -14,5 +15,25 @@
   	<td><%= result[0].produit.format.nom %></td>
   	<td><%= number_to_currency(result[0].prix_regulier) %></td>
   	</tr>
+  <% end %>
+</table>
+<hr/>
+<table border="1">
+  <caption>Mauvais prix</caption>
+  <tr>
+  <th>Magasin</th>
+  <th>Produit</th>
+  <th>Fabricant</th>
+  <th>Format</th>
+  <th>Prix</th>
+  </tr>
+  <% @results_worst.each do |result| %>
+    <tr>
+    <td><%= result[0].magasin.nom %></td>
+    <td><%= result[0].produit.produit_nom.nom %></td>
+    <td><%= result[0].produit.fabricant.nom %></td>
+    <td><%= result[0].produit.format.nom %></td>
+    <td><%= number_to_currency(result[0].prix_regulier) %></td>
+    </tr>
   <% end %>
 </table>
